@@ -16,7 +16,7 @@ export function AppHeader() {
 
   return (
     <header className="sticky top-0 z-40 glass border-b border-border/50">
-      <div className="mx-auto max-w-2xl px-4 h-14 flex items-center justify-between">
+      <div className="w-full px-4 sm:px-6 lg:px-12 h-14 flex items-center justify-between">
         <Link to="/feed" className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg bg-gradient-primary shadow-glow flex items-center justify-center">
             <Sparkles className="h-4 w-4 text-primary-foreground" />

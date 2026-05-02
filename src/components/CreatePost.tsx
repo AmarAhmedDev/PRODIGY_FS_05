@@ -8,7 +8,7 @@ import { uploadToImageKit } from "@/lib/imagekit-upload";
 import { ImagePlus, Loader2, X, Send } from "lucide-react";
 import { toast } from "sonner";
 
-export function CreatePost() {
+export function CreatePost({ onSuccess }: { onSuccess?: () => void }) {
   const { user } = useAuth();
   const [text, setText] = useState("");
   const [file, setFile] = useState<File | null>(null);
@@ -50,6 +50,7 @@ export function CreatePost() {
       onPick(null);
       if (fileRef.current) fileRef.current.value = "";
       toast.success("Posted");
+      onSuccess?.();
     } catch (err: any) {
       toast.error(err?.message ?? "Failed to post");
     } finally {
@@ -60,6 +61,7 @@ export function CreatePost() {
   return (
     <div className="rounded-2xl border border-border/60 bg-card/70 backdrop-blur p-4 shadow-card">
       <Textarea
+        id="create-post-textarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="What's on your mind?"

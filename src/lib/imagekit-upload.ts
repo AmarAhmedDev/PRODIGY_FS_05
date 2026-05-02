@@ -1,4 +1,4 @@
-import { getImageKitAuth } from "@/server/imagekit.functions";
+import { getImageKitAuth } from "@/lib/imagekit.functions";
 
 export interface UploadResult {
   url: string;
